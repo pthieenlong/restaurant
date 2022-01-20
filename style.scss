@@ -1,0 +1,279 @@
+// Variables
+$primary-color: rgb(203, 164, 114);
+$primbold-color: rgb(153, 124, 86);
+$scndary-color: rgb(31, 32, 34);
+$thrdary-color: rgb(121, 127, 127);
+$font-family: 'Amatic SC', cursive;
+// ---------
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font-family;
+}
+@mixin btn($bgColor, $txtColor, $borderColor, $round) {
+    border: 1px solid $borderColor;
+    background-color: $bgColor;
+    color: $txtColor;
+    border-radius: $round;
+}
+@mixin d-flex() {
+    display: flex;
+    flex-direction: column;
+}
+@mixin txt($font-size) {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: $font-size;
+}
+@keyframes left-to-right {
+    0% {
+        left: -50%;
+    }
+    20% {
+        left: -40%;
+    }
+    40% {
+        left: -30%;
+    }
+    60% {
+        left: -20%;
+    }
+    80% {
+        left: -10%;
+    }
+    100% {
+        left: 0;
+    }
+    80% {
+        left: -10%;
+    }
+    60% {
+        left: -20%;
+    }
+    40% {
+        left: -30%;
+    }
+    20% {
+        left: -40%;
+    }
+    0% {
+        left: -50%;
+    }
+}
+body {
+    background-color: $scndary-color;
+}
+.container {
+    width: 100%;
+    height: auto;
+    padding: 0px 15px;
+}
+.menu {
+    @include d-flex;
+    flex-wrap: wrap;
+    background-color: $primary-color;
+    width: 100%;
+    list-style-type: none;
+    .menu-item {
+        padding: 10px;
+        display: inline-table;
+        &:hover {
+            background-color: $scndary-color;
+            a {
+                @include txt(22px);
+                color: $primary-color;
+            }
+        }
+        a{
+        
+            text-decoration: none;
+            color: $scndary-color;
+        }
+    }
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    background-color: $scndary-color;
+    height: 50px;
+    z-index: 99;
+    top: 0;
+    position: fixed;
+    // overflow: hidden;
+    line-height: 50px;
+    button {
+        @include btn(transparent, $primary-color, transparent, 0px);
+        width: 35px;
+        height: 35px;
+    }
+
+    .logo {
+        width: 75px;
+        height: 75px;
+        align-self: baseline;
+        img {
+            width: 75px;
+            height: 75px;
+        }
+    }
+}
+#home-menu {
+    width: 100vw;
+    padding: 50px 0px;
+    // height: 250px;
+    background-image: url(images/banner.jpeg);
+    background-position: center;
+    background-size: cover;
+    object-fit: fill;
+    background-repeat: no-repeat;
+    .header-detail {
+        @include d-flex;
+        @include txt(32px);
+        margin-top: 120px;
+        color: $primary-color;
+        text-shadow: 3px 3px 0px $scndary-color;
+        .header-detail-btn {
+            @include txt(24px);
+            @include btn($primary-color, $scndary-color, $scndary-color, 30px);
+            width: 180px;
+            height: 30px;
+            font-weight: bold;
+            align-self: center;
+            margin: 15px 0px;
+            transition: .5s;
+            &:hover {
+                color: $primary-color;
+                background-color: $scndary-color;
+                border: 1px solid $primary-color;
+            }
+        }
+    }
+    #nav-menu {
+        display: none;
+        position: fixed;
+        background-color: rgba(31, 32, 34, .5);
+        top: 50px;
+        width: 100vw;
+        z-index: 0;
+        
+        .menu {
+            width: 45%;
+            height: 100vh;
+            animation: left-to-right 2s;
+                
+        }
+    }
+}
+.container {
+
+    .content {
+        .title {
+            margin: 25px;
+        }
+        margin: 50px 0px;
+        @include d-flex();
+        justify-content: center;
+        text-align: center;
+        h2 {
+            @include txt(32px);
+            color: $primary-color;
+        }
+        p {
+            color: $primary-color;
+        }
+        button {
+            @include btn($primary-color, $scndary-color, $primary-color, 20px);
+            @include txt(18px);
+            width: 150px;
+            height: 35px;
+            margin: 30px auto;
+        }
+        @media only screen and (max-width: 414px) {
+            #discover-1 {
+                display: none;
+            }
+        }
+    }
+    .food-menu {
+        .menu {
+            flex-direction: row;
+            .menu-item {
+                width: calc(100%/5);
+                &:hover {
+                    background-color: $scndary-color;
+                    color: white;
+                    @include txt(16px);
+                }
+                .active {
+                    background-color: $scndary-color;
+                    color: white;
+                    @include txt(16px);
+                }
+            }
+        }
+        .product-list{
+            @include d-flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-between;
+            .product-list-item {
+                @include d-flex;
+                width: calc(100%/2 - 30px);
+                background-color: $thrdary-color;
+                margin: 15px;
+                transition: .5s;
+                .product-list-item-title{
+                    margin: 15px 0px;
+                    @include txt(16px);
+                }
+                .product-list-item-prices {
+                    @include txt(16px);
+                    .product-item-price {
+                        @include txt(20px);
+                        color: white;
+                    }
+                    .product-item-sales {
+                        color: $scndary-color;
+                        text-decoration: line-through;
+                    }
+                }
+                .product-list-item-btns {
+                    @include d-flex();
+                    flex-direction: row;
+                    button {
+                        width: calc(100% / 2.5);
+                        @include txt(12px);
+                    }
+                }
+                
+                &:hover {
+                    box-shadow: 3px 5px 10px rgba(153, 124, 86, .5);
+                }
+            }
+        }
+    }
+    .contact {
+        @include d-flex();
+        .contact-box {
+            margin: 0px auto;
+            @include txt(22px);
+            width: 150px;
+            height: 25px;
+            background-color: $primary-color;
+            color: $scndary-color;
+        }
+        .contact-detail {
+            margin: 25px 0px;
+        }
+        #contact-form {
+            .form-desc {
+                text-align: left;
+            }
+        }
+    }
+}
