@@ -173,19 +173,112 @@
                 <p class="form-desc">
                     Reserve a table, ask for today's special or just send us a message:
                 </p>
+                <section class="input-section">
+                    <input type="text" name="customer-name" id="customer-name" placeholder="name:">
+                    <input type="number" name="customer-quantity" id="customer-quantity" placeholder="how many people:">
+                    <input  name="customer-date" id="customer-date" placeholder="date">
+                    <textarea name="customer-note" id="customer-note" placeholder="note"></textarea>
+
+                    <button class="btn " id="customer-submit">
+                        send messages
+                    </button>
+                </section>
             </form>
         </section>
     </section>
     <section class="map">
-
     </section>
     <section class="container">
-        <section class="about">
-            
+        <section class="content about">
+            <h2 class="title">
+                about us
+            </h2>
+            <section class="about-section">
+                <img src="images/about.jpeg" alt="" class="about-thumbnail">
+                <p class="about-desc">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur ullam omnis neque autem excepturi, reprehenderit est, tempore odio, vel laborum tempora aut ex. Blanditiis expedita, explicabo molestias odit voluptatem vero. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat totam consectetur quisquam amet debitis assumenda, nihil dicta autem animi, magni quibusdam nesciunt nostrum officia facilis distinctio culpa aspernatur minima. Obcaecati.
+                </p>
+            </section>
         </section>
     </section>
     <footer>
-
+        <div class="container">
+            <section class=" footer-section">
+                <div class="page-detail">
+                    <a href="index.html" class="logo">
+                        <img src="images/logo.png" alt="logo">
+                    </a>
+                    <p class="page-title">Kin's restaurant</p>
+                    <p class="page-address">
+                        Dien Bien Phu Street, Ward 25, Binh Thanh District
+                    </p>
+                </div>
+                <div class="page-category" id="noti-form">
+                    <p class="category-title">get notifications</p>
+                    <form action="" >
+                        <input type="email" name="noti-email" id="noti-email"placeholder="email:">
+                        <button class="btn" id="noti-btn">hit us</button>
+                    </form>
+                </div>
+                <div class="page-category">
+                    <p class="category-title">
+                        categories
+                    </p>
+                    <ul class="menu">
+                        <li class="menu-item">
+                            food
+                        </li>
+                        <li class="menu-item">
+                            menu
+                        </li>
+                        <li class="menu-item">
+                            order
+                        </li>
+                        <li class="menu-item">
+                            book the reservation
+                        </li>
+                    </ul>
+                </div>
+                <div class="page-category">
+                    <p class="category-title">
+                        account
+                    </p>
+                    <ul class="menu">
+                        <li class="menu-item">
+                            login
+                        </li>
+                        <li class="menu-item">
+                            cart
+                        </li>
+                        <li class="menu-item">
+                            account
+                        </li>
+                        <li class="menu-item">
+                            register
+                        </li>
+                    </ul>
+                </div>
+                <div class="page-category">
+                    <p class="category-title">
+                        more about us
+                    </p>
+                    <ul class="menu">
+                        <li class="menu-item">
+                            blog
+                        </li>
+                        <li class="menu-item">
+                            contact
+                        </li>
+                        <li class="menu-item">
+                            about
+                        </li>
+                        <li class="menu-item">
+                            terms & conds
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
     </footer>
 </body>
 
@@ -194,6 +287,15 @@
     
     menuBtn.click((e) => {
         $('#nav-menu').toggle();
+    })
+    
+    const dateInput = $('#customer-date');
+    dateInput.focus(() => {
+        dateInput[0].type = 'date';
+        
+    });
+    dateInput.blur(() => {
+        dateInput[0].type = 'text';
     })
 </script>
 </html>

@@ -170,7 +170,6 @@ body {
     }
 }
 .container {
-
     .content {
         .title {
             margin: 25px;
@@ -273,7 +272,105 @@ body {
         #contact-form {
             .form-desc {
                 text-align: left;
+                margin-bottom: 15px;
+            }
+            .input-section {
+                @include d-flex();
+                input, textarea {
+                    margin: 5px 0px;
+                    background-color: $thrdary-color;
+                    border: none;
+                    textarea::placeholder, &::placeholder {
+                        color: $scndary-color;
+                    }
+                }
             }
         }
     }
+    .about {
+        .about-section {
+            @include d-flex();
+            & p {
+                margin: 25px 0px;
+            }
+        }
+    }
+    .footer-section {
+        @include d-flex();
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 25px 0px;
+        .page-detail {
+            text-align: center;
+            width: 100%;
+            .page-title {
+                @include txt(32px);
+            }
+            .page-address {
+                @include txt(22px);
+            }
+            a img{
+                width: 120px;
+            }
+        }
+        .page-category {
+            margin-top: 25px;
+            width: calc(100% / 3);
+            .category-title {
+                @include txt(18px);
+                text-align: left;
+                padding-left: 10px;
+            }
+            .menu {
+                .menu-item {
+                    &:hover {
+                        color: $primary-color;
+                    }
+                }
+            }
+        }
+        #noti-form {
+            width: 100%;
+            text-align: center;
+            .category-title {
+                text-align: center;
+            }
+            form {
+                @include d-flex();
+                align-items: center;
+                input {
+                    width: 175px;
+                    height: 30px;
+                    line-height: 30px;
+                    border: none;
+                    margin-top: 15px;
+                    background-color: $scndary-color;
+                    &::placeholder {
+                        color: $primary-color;
+                    }
+                }
+                button {
+                    width: 75px;
+                    margin-top: 15px;
+                    border-radius: 15px;
+                    border: none;
+                    background-color: $scndary-color;
+                    color: $primary-color;
+                }
+            }
+        }
+    }
+}
+.map {
+    opacity: .8;
+    background-image: url(images/map.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+}
+footer {
+    background-color: $primary-color;
 }
